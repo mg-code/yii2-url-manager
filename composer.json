@@ -1,0 +1,23 @@
+{
+    "name": "mg-code/yii2-host-url-rule",
+    "description": "Filters url rules by host name",
+    "keywords": ["yii2", "extension", "url manager", "host", "url rule"],
+    "homepage": "https://github.com/mg-code/yii2-host-url-rule",
+    "type": "yii2-extension",
+    "license": "BSD 3-Clause",
+    "authors": [
+        {
+            "name": "Maris Graudins",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "mgcode\\hostUrl\\": ""
+        }
+    }
+}
