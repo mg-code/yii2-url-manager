@@ -1,38 +1,42 @@
-yii2-host-url-rule
+yii2-url-manager
 =========
-Filters url rules by host name.
-Useful if your application works on multiple domains/subdomains.
+Useful url rules for url manager.
 
-### Install
+## Install
 
 Either run
 
 ```
-$ php composer.phar require mg-code/yii2-host-url-rule "@dev"
+$ php composer.phar require mg-code/yii2-url-manager "@dev"
 ```
 
 or add
 
 ```
-"mg-code/yii2-host-url-rule": "@dev"
+"mg-code/yii2-url-manager": "@dev"
 ```
 
 to the ```require``` section of your `composer.json` file.
 
-Usage
------
+## Usage
 
-Once the extension is installed, you can use HostUrlRule as any other url:
+Once the extension is installed, you can use url rules:
+
+### HostUrlRule
+Filters url rules by host name. 
+Useful if your application works on multiple domains/subdomains.
 
 ```php
 return [
     'class' => 'yii\web\UrlManager',
     ......
     'rules' => [
-       ['class' => 'mgcode\hostUrl\HostUrlRule', 'host' => 'payment.example.com', 'rules' => [
+       ['class' => 'mgcode\urlManager\HostUrlRule', 'host' => 'payment.example.com', 'rules' => [
             ['pattern' => '/', 'route' => '/payment/default/index'],
         ]],
     ]
 ];
 ```
+
+
 See [Yii Routing and URL Creation](http://www.yiiframework.com/doc-2.0/guide-runtime-routing.html) for more detail.
