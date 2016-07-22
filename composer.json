@@ -1,8 +1,8 @@
 {
-    "name": "mg-code/yii2-host-url-rule",
-    "description": "Filters url rules by host name",
+    "name": "mg-code/yii2-url-manager",
+    "description": "Useful url rules for url manager.",
     "keywords": ["yii2", "extension", "url manager", "host", "url rule"],
-    "homepage": "https://github.com/mg-code/yii2-host-url-rule",
+    "homepage": "https://github.com/mg-code/yii2-url-manager",
     "type": "yii2-extension",
     "license": "BSD 3-Clause",
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mgcode\\hostUrl\\": ""
+            "mgcode\\urlManager\\": ""
         }
     }
 }
