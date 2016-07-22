@@ -1,6 +1,6 @@
 <?php
 
-namespace mgcode\hostUrl;
+namespace mgcode\urlManager;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -10,7 +10,7 @@ use yii\web\UrlRuleInterface;
 /**
  * HostUrlRule filters url rules by host name.
  * Useful if your application works on multiple domains/subdomains.
- * @link https://github.com/mg-code/yii2-host-url-rule
+ * @link https://github.com/mg-code/yii2-url-manager
  * @author Maris Graudins <maris@mg-interactive.lv>
  */
 class HostUrlRule extends CompositeUrlRule
