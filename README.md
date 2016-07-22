@@ -22,7 +22,7 @@ to the ```require``` section of your `composer.json` file.
 
 Once the extension is installed, you can use url rules:
 
-### HostUrlRule
+#### HostUrlRule
 Filters url rules by host name. 
 Useful if your application works on multiple domains/subdomains.
 
