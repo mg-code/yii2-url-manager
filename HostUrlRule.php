@@ -5,6 +5,7 @@ namespace mgcode\urlManager;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\web\CompositeUrlRule;
+use yii\web\Request;
 use yii\web\UrlRule;
 use yii\web\UrlRuleInterface;
 
@@ -127,7 +128,7 @@ class HostUrlRule extends CompositeUrlRule
             return $this->_createUrlProtocol;
         }
 
-        $this->_createUrlProtocol = \Yii::$app->has('request') && Yii::$app->request->isSecureConnection ? 'https' : 'http';
+        $this->_createUrlProtocol = \Yii::$app->has('request') && \Yii::$app->request instanceof Request && Yii::$app->request->isSecureConnection ? 'https' : 'http';
         return $this->_createUrlProtocol;
     }
 
