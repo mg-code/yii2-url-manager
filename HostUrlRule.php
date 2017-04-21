@@ -36,6 +36,11 @@ class HostUrlRule extends CompositeUrlRule
     public $ruleConfig = ['class' => 'yii\web\UrlRule'];
 
     /**
+     * @var string|null Holds protocol name
+     */
+    private $_createUrlProtocol;
+
+    /**
      * @inheritdoc
      */
     public function init()
@@ -102,13 +107,36 @@ class HostUrlRule extends CompositeUrlRule
         foreach ($this->rules as $rule) {
             /* @var $rule \yii\web\UrlRule */
             if (($url = $rule->createUrl($manager, $route, $params)) !== false) {
-                $hostInfo = Yii::$app->request->isSecureConnection ? 'https' : 'http';
+                $protocol = $this->getCreateUrlProtocol();
                 if (substr($url, 0, 1) !== '/') {
                     $url = '/'.$url;
                 }
-                return $hostInfo.'://'.$this->host.$url;
+                return $protocol.'://'.$this->host.$url;
             }
         }
         return false;
+    }
+
+    /**
+     * Returns protocol for create url. If protocol not defined will detect from current request or set as http.
+     * @return null|string
+     */
+    public function getCreateUrlProtocol()
+    {
+        if ($this->_createUrlProtocol !== null) {
+            return $this->_createUrlProtocol;
+        }
+
+        $this->_createUrlProtocol = \Yii::$app->has('request') && Yii::$app->request->isSecureConnection ? 'https' : 'http';
+        return $this->_createUrlProtocol;
+    }
+
+    /**
+     * Setter for create url protocol
+     * @param $value
+     */
+    public function setCreateUrlProtocol($value)
+    {
+        $this->_createUrlProtocol = $value;
     }
 }
